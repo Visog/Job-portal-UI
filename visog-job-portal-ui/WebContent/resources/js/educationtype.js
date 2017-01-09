@@ -1,13 +1,13 @@
-	var app = angular.module("Address_Type", []);
-  
+	var app = angular.module("Education_Type", []);
+
 	//Controller Part
 	app
 			.controller(
-					"AddressTypeController",
+					"EducationTypeController",
 					function($scope, $http) {
 
-						$scope.AddressType = [];
-						$scope.AddressTypeForm = {
+						$scope.EducationType = [];
+						$scope.EducationTypeForm = {
 							// id : -1,
 							name : "",
 							description : "",
@@ -15,30 +15,30 @@
 						};
 
 						// Now load the data from server
-						_refreshAddress_TypeData();
+						_refreshEducation_TypeData();
 
 						// HTTP POST/PUT methods for add/edit role
 						// with the help of id, we are going to find out whether it
 						// is put or post operation
 
-						$scope.submitAddress_Type = function() {
+						$scope.submitEducation_Type = function() {
 
 							var method = "";
 							var url = "";
 				
-							if ($scope.AddressTypeForm.id == -1
-									|| $scope.AddressTypeForm.id == undefined) {
+							if ($scope.EducationTypeForm.id == -1
+									|| $scope.EducationTypeForm.id == undefined) {
 								// Id is absent in form data, it is create new role
 								// operation
 
 								method = "POST";
-								url = 'http://localhost:8080/visog-job-portal-api/master/Address_Type/';
+								url = 'http://localhost:8080/visog-job-portal-api/master/Education_Type/';
 								$http
 										.post(
 												url,
 												{
-													"name" : $scope.AddressTypeForm.name,
-													"description" : $scope.AddressTypeForm.description
+													"name" : $scope.EducationTypeForm.name,
+													"description" : $scope.EducationTypeForm.description
 													
 												}).then(_success, _error);
 
@@ -46,57 +46,57 @@
 
 								// Id is present in form data, it is edit role
 								// operation
-								id = $scope.AddressTypeForm.id;
+								id = $scope.EducationTypeForm.id;
 								method = "PUT";
-								url = 'http://localhost:8080/visog-job-portal-api/master/Address_Type/'
+								url = 'http://localhost:8080/visog-job-portal-api/master/Education_Type/'
 										+ id;
 								$http
 										.put(
 												url,
 												{
-													"name" : $scope.AddressType.name,
-													"description" : $scope.addressType.description
+													"name" : $scope.EducationType.name,
+													"description" : $scope.EducationType.description
 													
 												}).then(_success, _error);
 								$scope.AddressType.id = -1;
 							}
 							/*
 							 * $http({ method : method, url : url, data :
-							 * angular.toJson($scope.Address_TypeForm), headers : {
+							 * angular.toJson($scope.Education_TypeForm), headers : {
 							 * 'Content-Type' : 'application/json' } }).then(
 							 * _success, _error );
 							 */
 						};
 
 						// HTTP DELETE- delete role by Id
-						$scope.deleteAddressType = function(addresstype) {
+						$scope.deleteEducationType = function(educationtype) {
 							$http(
 									{
 										method : 'DELETE',
-										url : 'http://localhost:8080/visog-job-portal-api/master/Address_Type/'
-												+ addresstype.id
+										url : 'http://localhost:8080/visog-job-portal-api/master/Education_Type/'
+												+ educationtype.id
 									}).then(_success, _error);
 						};
 
 						// In case of edit, populate form fields and assign form.id
 						// with role id
-						$scope.editAddressType = function(addresstype) {
+						$scope.editEducationType = function(educationtype) {
 
-							$scope.AddressTypeForm.name = AddressType.name;
-							$scope.AddressTypeForm.description = AddressType.description;
+							$scope.EducationTypeForm.name = EducationType.name;
+							$scope.EducationTypeForm.description = EducationType.description;
 							
 						};
 
 						/* Private Methods */
-						// HTTP GET- get all countries collection
-						function _refreshAddressTypeData() {
+						// HTTP GET- get all EducationType collection
+						function _refreshEducationTypeData() {
 							$http(
 									{
 										method : 'GET',
-										url : 'http://localhost:8080/visog-job-portal-api/master/Address_Type/'
+										url : 'http://localhost:8080/visog-job-portal-api/master/Education_Type/'
 									}).then(function successCallback(response) {
 								// alert(response.data.data)
-								$scope.AddressType = response.data.data;
+								$scope.EducationType = response.data.data;
 							}, function errorCallback(response) {
 								console.log(response.statusText);
 							});
@@ -104,7 +104,7 @@
 
 						function _success(response) {
 
-							_refreshAddressTypeData();
+							_refreshEducationTypeData();
 							_clearFormData()
 						}
 
@@ -116,8 +116,8 @@
 						// Clear the form
 						function _clearFormData() {
 							// $scope.genderForm.id = -1;
-							$scope.AddressTypeForm.name = "";
-							$scope.AddressTypeForm.description = "";
+							$scope.EducationTypeForm.name = "";
+		  					$scope.EducationTypeForm.description = "";
 						
 
 						}

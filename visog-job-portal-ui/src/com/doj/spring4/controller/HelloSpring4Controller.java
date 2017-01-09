@@ -50,8 +50,7 @@ public class HelloSpring4Controller {
 	
 	@RequestMapping(value = "/country", method = RequestMethod.GET)
 	public String country() {  
-//		System.out.println("In country>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-//		return "country";
+
 		return "master/country1";
 	} 
 	 

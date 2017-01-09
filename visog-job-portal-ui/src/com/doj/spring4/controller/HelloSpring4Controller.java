@@ -40,7 +40,7 @@ public class HelloSpring4Controller {
 
 	@RequestMapping(value = "/gender", method = RequestMethod.GET)
 	public String gender() {
-		return "master/gender1";
+		return "master/gender";
 	}
 
 	@RequestMapping(value = "/currency", method = RequestMethod.GET)
@@ -60,7 +60,7 @@ public class HelloSpring4Controller {
 
 	@RequestMapping(value = "/country", method = RequestMethod.GET)
 	public String country() {
-		return "master/country1";
+		return "master/country";
 	}
 
 	@RequestMapping(value = "/state", method = RequestMethod.GET)
@@ -108,9 +108,9 @@ public class HelloSpring4Controller {
 		return "master/roles";
 	}
 
-	@RequestMapping(value = "/fileExtension", method = RequestMethod.GET)
+	@RequestMapping(value = "/fileType", method = RequestMethod.GET)
 	public String fileExtension() {
-		return "master/fileExtension";
+		return "master/filetype";
 	}
 
 	@RequestMapping(value = "/job_Seeker", method = RequestMethod.GET)
@@ -130,32 +130,32 @@ public class HelloSpring4Controller {
 
 	@RequestMapping(value = "/Address", method = RequestMethod.GET)
 	public String Address() {
-		return "transaction/Address";
+		return "transaction/address";
 	}
 
 	@RequestMapping(value = "/ExperienceDetails", method = RequestMethod.GET)
 	public String ExperienceDetails() {
-		return "transaction/ExperienceDetails";
+		return "transaction/experiencedetails";
 	}
 
 	@RequestMapping(value = "/JobSeeker", method = RequestMethod.GET)
 	public String JobSeeker() {
-		return "transaction/JobSeeker";
+		return "transaction/jobseeker";
 	}
 
 	@RequestMapping(value = "/PostJobSeeker", method = RequestMethod.GET)
 	public String PostJobSeeker() {
-		return "transaction/PostJobSeeker";
+		return "transaction/postjobseeker";
 	}
 
 	@RequestMapping(value = "/ProjectDetails", method = RequestMethod.GET)
 	public String ProjectDetails() {
-		return "transaction/ProjectDetails";
+		return "transaction/projectdetails";
 	}
 
 	@RequestMapping(value = "/Users", method = RequestMethod.GET)
 	public String Users() {
-		return "transaction/Users";
+		return "transaction/users";
 	}
 
 	@RequestMapping(value = "/employerjobseeker", method = RequestMethod.GET)
@@ -173,9 +173,5 @@ public class HelloSpring4Controller {
 		return "transaction/languageknown";
 	}
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String other() {
-		return "main/index";
-	}
 
 }

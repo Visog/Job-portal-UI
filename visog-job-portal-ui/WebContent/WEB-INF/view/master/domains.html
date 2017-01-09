@@ -3,7 +3,7 @@
   <head>  
   
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-    
+      <script src="/visog-job-portal-ui/resources/js/domains.js"></script>
     <title>AngularJS $http Rest example</title>  
  <script type="text/javascript">
             var app = angular.module("DomainsManagement", []);
@@ -34,7 +34,7 @@
                         //Id is absent in form data, it is create new role operation
                         
                         method = "POST";
-                        url = 'http://localhost:8080/visog-job-portal-api/master/domains/';
+                        url = 'http://localhost:8080/visog-job-portal-api/master/domain/';
                         $http.post(url, { "name": $scope.domainsForm.name, "description" : $scope.domainsForm.description }).then( _success, _error ); 
                     
                     } else {
@@ -42,7 +42,7 @@
                         //Id is present in form data, it is edit role operation
                         id=$scope.domainsForm.id;
                         method = "PUT";
-                        url = 'http://localhost:8080/visog-job-portal-api/master/domains/'+ id;
+                        url = 'http://localhost:8080/visog-job-portal-api/master/domain/'+ id;
                       $http.put(url, { "name": $scope.domainsForm.name, "description" : $scope.domainsForm.description }).then( _success, _error );
                       $scope.domainsForm.id = -1;
                     }
@@ -61,7 +61,7 @@
                 $scope.deleteDomains = function(domains) {
                     $http({
                         method : 'DELETE',
-                        url : 'http://localhost:8080/visog-job-portal-api/master/domains/' + domains.id
+                        url : 'http://localhost:8080/visog-job-portal-api/master/domain/' + domains.id
                     }).then(_success, _error);
                 };
  
@@ -78,7 +78,7 @@
                 function _refreshDomainsData() {
                     $http({
                         method : 'GET',
-                        url : 'http://localhost:8080/visog-job-portal-api/master/domains/'
+                        url : 'http://localhost:8080/visog-job-portal-api/master/domain/'
                     }).then(function successCallback(response) {
                     	//alert(response.data.data)
                         $scope.domains = response.data.data;
@@ -197,7 +197,7 @@ tfoot tr th:last-child {
             <table>
                
                 <tr>
-                    <th colspan="2">Add/Edit domain</th>
+                    <th colspan="2">Add/Edit Domains</th>
                  </tr>
                 <tr>
                     <td>Domains Name</td>
@@ -226,7 +226,7 @@ tfoot tr th:last-child {
     <td> {{ domain.name }}</td>
     <td >{{ domain.description }}</td>  
                 
-                <td><a ng-click="editDomains(domain)" class="blue-button">Edit</a> | <a ng-click="deleteDomains(domain)" class="red-button">Delete</a></td>
+                <td><a ng-click="editDomains(domains)" class="blue-button">Edit</a> | <a ng-click="deleteDomains(domains)" class="red-button">Delete</a></td>
             </tr>
  
         </table>

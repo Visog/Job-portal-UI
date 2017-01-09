@@ -7,7 +7,6 @@
  <h2>visog-job-portal-ui</h2>
  <h4><a href="/visog-job-portal-ui-1.0/hello">Click Here</a></h4>
  <h4><a href="/visog-job-portal-ui-1.0/employer">Employer</a></h4>
- <h4><a href="/visog-job-portal-ui-1.0/address">Address Type</a></h4>
   <h4><a href="/visog-job-portal-ui-1.0/addresstype">Address Type</a></h4>
   <h4><a href="/visog-job-portal-ui-1.0/registration">Regitration</a></h4>
     <h4><a href="/visog-job-portal-ui-1.0/courses">Courses</a></h4>

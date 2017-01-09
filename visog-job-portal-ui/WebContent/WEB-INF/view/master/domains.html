@@ -34,7 +34,7 @@
                         //Id is absent in form data, it is create new role operation
                         
                         method = "POST";
-                        url = 'http://localhost:8080/visog-job-portal-api/master/domain/';
+                        url = 'http://localhost:8080/visog-job-portal-api/master/domains/';
                         $http.post(url, { "name": $scope.domainsForm.name, "description" : $scope.domainsForm.description }).then( _success, _error ); 
                     
                     } else {
@@ -42,7 +42,7 @@
                         //Id is present in form data, it is edit role operation
                         id=$scope.domainsForm.id;
                         method = "PUT";
-                        url = 'http://localhost:8080/visog-job-portal-api/master/domain/'+ id;
+                        url = 'http://localhost:8080/visog-job-portal-api/master/domains/'+ id;
                       $http.put(url, { "name": $scope.domainsForm.name, "description" : $scope.domainsForm.description }).then( _success, _error );
                       $scope.domainsForm.id = -1;
                     }
@@ -61,16 +61,16 @@
                 $scope.deleteDomains = function(domains) {
                     $http({
                         method : 'DELETE',
-                        url : 'http://localhost:8080/visog-job-portal-api/master/domain/' + domains.id
+                        url : 'http://localhost:8080/visog-job-portal-api/master/domains/' + domains.id
                     }).then(_success, _error);
                 };
  
              // In case of edit, populate form fields and assign form.id with role id
-                $scope.editDomains = function(domain) {
+                $scope.editDomains = function(domains) {
                   
-                    $scope.domainsForm.name = domain.name;
-                    $scope.domainsForm.description = domain.description;
-                    $scope.domainsForm.id = domain.id;
+                    $scope.domainsForm.name = domains.name;
+                    $scope.domainsForm.description = domains.description;
+                    $scope.domainsForm.id = domains.id;
                 };
          
                 /* Private Methods */
@@ -78,7 +78,7 @@
                 function _refreshDomainsData() {
                     $http({
                         method : 'GET',
-                        url : 'http://localhost:8080/visog-job-portal-api/master/domain/'
+                        url : 'http://localhost:8080/visog-job-portal-api/master/domains/'
                     }).then(function successCallback(response) {
                     	//alert(response.data.data)
                         $scope.domains = response.data.data;
@@ -221,7 +221,7 @@ tfoot tr th:last-child {
                
             </tr>
  
-            <tr ng-repeat="domain in domains">
+            <tr ng-repeat="domains in Domains">
        
     <td> {{ domain.name }}</td>
     <td >{{ domain.description }}</td>  

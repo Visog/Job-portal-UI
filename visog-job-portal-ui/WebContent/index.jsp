@@ -28,6 +28,8 @@
        <h4><a href="/visog-job-portal-ui/employerjobseeker">EmployerJobseeker</a></h4>
        <h4><a href="/visog-job-portal-ui/files">Files</a></h4>
        <h4><a href="/visog-job-portal-ui/languageknown">LanguageKnown</a></h4>
+       <h4><a href="/visog-job-portal-ui/postJob">postJob</a></h4>
+          <h4><a href="/visog-job-portal-ui/PostJobDomains">PostJobDomains</a></h4>
        
        
  </center>

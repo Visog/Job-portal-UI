@@ -57,7 +57,7 @@
                     $http({
                         method : 'DELETE',
                         url : 'http://localhost:8080/visog-job-portal-api/master/fileType/' + fileType.id
-                    }).then(_success, _error);
+                    }).then(_success, _error);		
                 };
  
              // In case of edit, populate form fields and assign form.id with file id

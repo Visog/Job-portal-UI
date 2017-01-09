@@ -6,8 +6,8 @@
 					"ProjectDetailsController",
 					function($scope, $http) {
 
-						$scope.ProjectDetails = [];
-						$scope.ProjectDetailsForm = {
+						$scope.projectdetails = [];
+						$scope.projectdetailsForm = {
 							// id : -1,
 							userid: "",
 							jobresponsibilities : "",
@@ -22,37 +22,37 @@
 						};
 
 						// Now load the data from server
-						_refreshProjectDetailsData();
+						_refreshprojectdetailsData();
 
 						// HTTP POST/PUT methods for add/edit address
 						// with the help of id, we are going to find out whether it
 						// is put or post operation
 
-						$scope.submitProjectDetails = function() {
+						$scope.submitprojectdetails = function() {
 
 							var method = "";
 							var url = "";
 				
-							if ($scope.ProjectDetailsForm.id == -1
-									|| $scope.ProjectDetailsForm.id == undefined) {
+							if ($scope.projectdetailsForm.id == -1
+									|| $scope.projectdetailsForm.id == undefined) {
 								// Id is absent in form data, it is create new address
 								// operation
 
 								method = "POST";
-								url = 'http://localhost:8080/visog-job-portal-api/transaction/ProjectDetails/';
+								url = 'http://localhost:8080/visog-job-portal-api/transaction/projectdetails/';
 								$http
 										.post(
 												url,
 												{
-													"userid" : $scope.ProjectDetailsForm.userid,
-													"jobresponsibilities" : $scope.ProjectDetailsForm.jobresponsibilities,
-													"projectdetails" : $scope.ProjectDetailsForm.projectdetails,
-													"projecttitle" : $scope.ProjectDetailsForm.projecttitle,
-													"employmenttypeid" : $scope.ProjectDetailsForm.employmenttypeid,
-													"durationfrom" : $scope.ProjectDetailsForm.durationfrom,
-													"durationto" : $scope.ProjectDetailsForm.durationto,
-													"teamSize" : $scope.ProjectDetailsForm.teamSize,
-													"technologiesused" : $scope.ProjectDetailsForm.technologiesused,
+													"userid" : $scope.projectdetailsForm.userid,
+													"jobresponsibilities" : $scope.projectdetailsForm.jobresponsibilities,
+													"projectdetails" : $scope.projectdetailsForm.projectdetails,
+													"projecttitle" : $scope.projectdetailsForm.projecttitle,
+													"employmenttypeid" : $scope.projectdetailsForm.employmenttypeid,
+													"durationfrom" : $scope.projectdetailsForm.durationfrom,
+													"durationto" : $scope.projectdetailsForm.durationto,
+													"teamSize" : $scope.projectdetailsForm.teamSize,
+													"technologiesused" : $scope.projectdetailsForm.technologiesused,
 													
 													
 												}).then(_success, _error);
@@ -61,32 +61,32 @@
 
 								// Id is present in form data, it is edit address
 								// operation
-								id = $scope.ProjectDetailsForm.id;
+								id = $scope.projectdetailsForm.id;
 								method = "PUT";
-								url = 'http://localhost:8080/visog-job-portal-api/transaction/ProjectDetails/'
+								url = 'http://localhost:8080/visog-job-portal-api/transaction/projectdetails/'
 										+ id;
 								$http
 										.put(
 												url,
 												{
-													"userid" : $scope.ProjectDetails.userid,
+													"userid" : $scope.projectdetails.userid,
 													"jobresponsibilities" : $scope.addressType.jobresponsibilities,
-													"projectdetails" : $scope.ProjectDetailsForm.projectdetails,
-													"projecttitle" : $scope.ProjectDetailsForm.projecttitle,
-													"employmenttypeid" : $scope.ProjectDetailsForm.employmenttypeid,
-													"durationfrom" : $scope.ProjectDetailsForm.durationfrom,
-													"durationto" : $scope.ProjectDetailsForm.durationto,
-													"teamSize" : $scope.ProjectDetailsForm.teamSize,
-													"technologiesused" : $scope.ProjectDetailsForm.technologiesused,
+													"projectdetails" : $scope.projectdetailsForm.projectdetails,
+													"projecttitle" : $scope.projectdetailsForm.projecttitle,
+													"employmenttypeid" : $scope.projectdetailsForm.employmenttypeid,
+													"durationfrom" : $scope.projectdetailsForm.durationfrom,
+													"durationto" : $scope.projectdetailsForm.durationto,
+													"teamSize" : $scope.projectdetailsForm.teamSize,
+													"technologiesused" : $scope.projectdetailsForm.technologiesused,
 													
 													
 													
 												}).then(_success, _error);
-								$scope.ProjectDetails.id = -1;
+								$scope.projectdetails.id = -1;
 							}
 							/*
 							 * $http({ method : method, url : url, data :
-							 * angular.toJson($scope.ProjectDetailsForm), headers : {
+							 * angular.toJson($scope.projectdetailsForm), headers : {
 							 * 'Content-Type' : 'application/json' } }).then(
 							 * _success, _error );
 							 */
@@ -97,7 +97,7 @@
 							$http(
 									{
 										method : 'DELETE',
-										url : 'http://localhost:8080/visog-job-portal-api/transaction/ProjectDetails/'
+										url : 'http://localhost:8080/visog-job-portal-api/transaction/projectdetails/'
 												+ country.id
 									}).then(_success, _error);
 						};
@@ -106,29 +106,29 @@
 						// with address id
 						$scope.editCountry = function(country) {
 
-							$scope.ProjectDetailsForm.userid = ProjectDetails.userid;
-							$scope.ProjectDetailsForm.jobresponsibilities = ProjectDetails.jobresponsibilities;
-							$scope.ProjectDetailsForm.projectdetails=ProjectDetails.projectdetails;
-						    $scope.ProjectDetailsForm.projecttitle=ProjectDetails.projecttitle;
-							$scope.ProjectDetailsForm.employmenttypeid=ProjectDetails.employmenttypeid;
-							$scope.ProjectDetailsForm.durationfrom=ProjectDetails.durationfrom;
-							$scope.ProjectDetailsForm.durationto=ProjectDetails.durationto;
-							$scope.ProjectDetailsForm.teamSize=ProjectDetails.teamSize;
-							$scope.ProjectDetailsForm.technologiesused=ProjectDetails.technologiesused;
+							$scope.projectdetailsForm.userid = projectdetails.userid;
+							$scope.projectdetailsForm.jobresponsibilities = projectdetails.jobresponsibilities;
+							$scope.projectdetailsForm.projectdetails=projectdetails.projectdetails;
+						    $scope.projectdetailsForm.projecttitle=projectdetails.projecttitle;
+							$scope.projectdetailsForm.employmenttypeid=projectdetails.employmenttypeid;
+							$scope.projectdetailsForm.durationfrom=projectdetails.durationfrom;
+							$scope.projectdetailsForm.durationto=projectdetails.durationto;
+							$scope.projectdetailsForm.teamSize=projectdetails.teamSize;
+							$scope.projectdetailsForm.technologiesused=projectdetails.technologiesused;
 							
 							
 						};
 
 						/* Private Methods */
 						// HTTP GET- get all countries collection
-						function _refreshProjectDetailsData() {
+						function _refreshprojectdetailsData() {
 							$http(
 									{
 										method : 'GET',
-										url : 'http://localhost:8080/visog-job-portal-api/transaction/ProjectDetails/'
+										url : 'http://localhost:8080/visog-job-portal-api/transaction/projectdetails/'
 									}).then(function successCallback(response) {
 								// alert(response.data.data)
-								$scope.ProjectDetails = response.data.data;
+								$scope.projectdetails = response.data.data;
 							}, function errorCallback(response) {
 								console.log(response.statusText);
 							});
@@ -136,7 +136,7 @@
 
 						function _success(response) {
 
-							_refreshProjectDetailsData();
+							_refreshprojectdetailsData();
 							_clearFormData()
 						}
 
@@ -148,15 +148,15 @@
 						// Clear the form
 						function _clearFormData() {
 							// $scope.genderForm.id = -1;
-							$scope.ProjectDetailsForm.userid = "";
-							$scope.ProjectDetailsForm.jobresponsibilities = "";
-							$scope.ProjectDetailsForm.projectdetails="";
-						    $scope.ProjectDetailsForm.projecttitle="";
-							$scope.ProjectDetailsForm.employmenttypeid="";
-							$scope.ProjectDetailsForm.durationfrom="";
-							$scope.ProjectDetailsForm.durationto="";
-							$scope.ProjectDetailsForm.teamSize="";
-							$scope.ProjectDetailsForm.technologiesused="";
+							$scope.projectdetailsForm.userid = "";
+							$scope.projectdetailsForm.jobresponsibilities = "";
+							$scope.projectdetailsForm.projectdetails="";
+						    $scope.projectdetailsForm.projecttitle="";
+							$scope.projectdetailsForm.employmenttypeid="";
+							$scope.projectdetailsForm.durationfrom="";
+							$scope.projectdetailsForm.durationto="";
+							$scope.projectdetailsForm.teamSize="";
+							$scope.projectdetailsForm.technologiesused="";
 
 						}
 						;

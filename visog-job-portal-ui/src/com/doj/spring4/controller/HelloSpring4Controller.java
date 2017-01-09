@@ -108,7 +108,7 @@ public class HelloSpring4Controller {
 		return "master/roles";
 	}
 
-	@RequestMapping(value = "/fileType", method = RequestMethod.GET)
+	@RequestMapping(value = "/filetype", method = RequestMethod.GET)
 	public String fileExtension() {
 		return "master/filetype";
 	}
@@ -128,12 +128,12 @@ public class HelloSpring4Controller {
 		return "transaction/employer";
 	}
 
-	@RequestMapping(value = "/Address", method = RequestMethod.GET)
+	@RequestMapping(value = "/address", method = RequestMethod.GET)
 	public String Address() {
 		return "transaction/address";
 	}
 
-	@RequestMapping(value = "/ExperienceDetails", method = RequestMethod.GET)
+	@RequestMapping(value = "/experiencedetails", method = RequestMethod.GET)
 	public String ExperienceDetails() {
 		return "transaction/experiencedetails";
 	}
@@ -143,17 +143,17 @@ public class HelloSpring4Controller {
 		return "transaction/jobseeker";
 	}
 
-	@RequestMapping(value = "/PostJobSeeker", method = RequestMethod.GET)
+	@RequestMapping(value = "/postjobseeker", method = RequestMethod.GET)
 	public String PostJobSeeker() {
 		return "transaction/postjobseeker";
 	}
 
-	@RequestMapping(value = "/ProjectDetails", method = RequestMethod.GET)
+	@RequestMapping(value = "/projectdetails", method = RequestMethod.GET)
 	public String ProjectDetails() {
 		return "transaction/projectdetails";
 	}
 
-	@RequestMapping(value = "/Users", method = RequestMethod.GET)
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String Users() {
 		return "transaction/users";
 	}

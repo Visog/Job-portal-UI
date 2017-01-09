@@ -6,8 +6,8 @@
 					"JobSeekerController",
 					function($scope, $http) {
 
-						$scope.files = [];
-						$scope.filesForm = {
+						$scope.jobseeker = [];
+						$scope.jobseekerForm = {
 							// id : -1,
 								resumeheadline : "",
 								domain : "",
@@ -127,7 +127,7 @@
 							$scope.jobseekerForm.industry = jobseeker.industry;
 							$scope.jobseekerForm.profilesummery = jobseeker.profilesummery;
 							$scope.jobseekerForm.employmenttype = jobseeker.employmenttype;
-							$scope.jobseekerForm.id =files.id;
+							$scope.jobseekerForm.id =jobseeker.id;
 							
 						};
 

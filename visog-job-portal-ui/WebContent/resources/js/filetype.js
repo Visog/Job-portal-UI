@@ -30,7 +30,7 @@
                         url = 'http://localhost:8080/visog-job-portal-api/master/fileType/';
                         $http.post(url, { "extension": $scope.fileTypeForm.extension, 
                         	"description" : $scope.fileTypeForm.description }).then( _success, _error ); 
-                        }
+                        
                     
                     } else {
                     	 

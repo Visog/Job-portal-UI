@@ -5,7 +5,7 @@
 <body>
  <center>
  <h2>visog-job-portal-ui</h2>
- <h4><a href="/visog-job-portal-ui/hello">Click Here</a></h4>
+ <h4><a href="/visog-job-portal-ui-1.0/hello">Click Here</a></h4>
  <h4><a href="WebContent/WEB-INF/view/transaction/employer.html">Employer</a></h4>
   <h4><a href="/visog-job-portal-ui/addressType">AddressType</a></h4>
   <h4><a href="/visog-job-portal-ui/registration">Regitration</a></h4>
@@ -14,7 +14,7 @@
   <h4><a href="/visog-job-portal-ui/gender">Gender</a></h4>
   <h4><a href="/visog-job-portal-ui/country">Country</a></h4>
   <h4><a href="/visog-job-portal-ui/state">State</a></h4>
-  <h4><a href="/visog-job-portal-ui/city">City</a></h4>
+  <h4><a href="/visog-job-portal-ui-1.0/city">City</a></h4>
   <h4><a href="/visog-job-portal-ui/employertype">EmployerType</a></h4>
    <h4><a href="/visog-job-portal-ui/employmenttype">EmploymentType</a></h4>
    <h4><a href="/visog-job-portal-ui/currency">Currency</a></h4>

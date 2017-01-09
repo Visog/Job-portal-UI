@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author sathish
  *
  */
-@Controller
+@Controller 
 @RequestMapping("/")
 public class HelloSpring4Controller {
 

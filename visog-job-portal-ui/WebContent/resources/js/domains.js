@@ -1,13 +1,13 @@
-	var app = angular.module("Address_Type", []);
+	var app = angular.module("Domains", []);
 
 	//Controller Part
 	app
 			.controller(
-					"AddressTypeController",
+					"DomainController",
 					function($scope, $http) {
 
-						$scope.AddressType = [];
-						$scope.AddressTypeForm = {
+						$scope.Domains = [];
+						$scope.DomainsForm = {
 							// id : -1,
 							name : "",
 							description : "",
@@ -15,30 +15,30 @@
 						};
 
 						// Now load the data from server
-						_refreshAddress_TypeData();
+						_refreshDomainsData();
 
 						// HTTP POST/PUT methods for add/edit role
 						// with the help of id, we are going to find out whether it
 						// is put or post operation
 
-						$scope.submitAddress_Type = function() {
+						$scope.submitDomains = function() {
 
 							var method = "";
 							var url = "";
 				
-							if ($scope.AddressTypeForm.id == -1
-									|| $scope.AddressTypeForm.id == undefined) {
+							if ($scope.DomainsForm.id == -1
+									|| $scope.DomainsForm.id == undefined) {
 								// Id is absent in form data, it is create new role
 								// operation
 
 								method = "POST";
-								url = 'http://localhost:8080/visog-job-portal-api/master/Address_Type/';
+								url = 'http://localhost:8080/visog-job-portal-api/master/Domains/';
 								$http
 										.post(
 												url,
 												{
-													"name" : $scope.AddressTypeForm.name,
-													"description" : $scope.AddressTypeForm.description
+													"name" : $scope.DomainsForm.name,
+													"description" : $scope.DomainsForm.description
 													
 												}).then(_success, _error);
 
@@ -46,19 +46,19 @@
 
 								// Id is present in form data, it is edit role
 								// operation
-								id = $scope.AddressTypeForm.id;
+								id = $scope.DomainsForm.id;
 								method = "PUT";
-								url = 'http://localhost:8080/visog-job-portal-api/master/Address_Type/'
+								url = 'http://localhost:8080/visog-job-portal-api/master/Domains/'
 										+ id;
 								$http
 										.put(
 												url,
 												{
-													"name" : $scope.AddressType.name,
-													"description" : $scope.addressType.description
+													"name" : $scope.Domains.name,
+													"description" : $scope.Domains.description
 													
 												}).then(_success, _error);
-								$scope.AddressType.id = -1;
+								$scope.Domains.id = -1;
 							}
 							/*
 							 * $http({ method : method, url : url, data :
@@ -69,34 +69,34 @@
 						};
 
 						// HTTP DELETE- delete role by Id
-						$scope.deleteAddressType = function(addresstype) {
+						$scope.deleteDomains = function(Domains) {
 							$http(
 									{
 										method : 'DELETE',
-										url : 'http://localhost:8080/visog-job-portal-api/master/Address_Type/'
-												+ addresstype.id
+										url : 'http://localhost:8080/visog-job-portal-api/master/Domains/'
+												+ Domains.id
 									}).then(_success, _error);
 						};
 
 						// In case of edit, populate form fields and assign form.id
 						// with role id
-						$scope.editAddressType = function(addresstype) {
+						$scope.editDomains = function(domains) {
 
-							$scope.AddressTypeForm.name = AddressType.name;
-							$scope.AddressTypeForm.description = AddressType.description;
+							$scope.DomainsForm.name = Domains.name;
+							$scope.DomainsForm.description = Domains.description;
 							
 						};
 
 						/* Private Methods */
-						// HTTP GET- get all countries collection
-						function _refreshAddressTypeData() {
+						// HTTP GET- get all courses collection
+						function _refreshDomainsData() {
 							$http(
 									{
 										method : 'GET',
-										url : 'http://localhost:8080/visog-job-portal-api/master/Address_Type/'
+										url : 'http://localhost:8080/visog-job-portal-api/master/Domains/'
 									}).then(function successCallback(response) {
 								// alert(response.data.data)
-								$scope.AddressType = response.data.data;
+								$scope.Domains = response.data.data;
 							}, function errorCallback(response) {
 								console.log(response.statusText);
 							});
@@ -104,7 +104,7 @@
 
 						function _success(response) {
 
-							_refreshAddressTypeData();
+							_refreshDomainsData();
 							_clearFormData()
 						}
 
@@ -116,8 +116,8 @@
 						// Clear the form
 						function _clearFormData() {
 							// $scope.genderForm.id = -1;
-							$scope.AddressTypeForm.name = "";
-							$scope.AddressTypeForm.description = "";
+							$scope.DomainsForm.name = "";
+							$scope.DomainsForm.description = "";
 						
 
 						}

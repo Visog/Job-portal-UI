@@ -6,8 +6,8 @@
 					"ExperienceDetailsController",
 					function($scope, $http) {
 
-						$scope.ExperienceDetails = [];
-						$scope.ExperienceDetailsForm = {
+						$scope.experiencedetails = [];
+						$scope.experiencedetailsForm = {
 							// id : -1,
 							userid: "",
 							companyName : "",
@@ -20,35 +20,35 @@
 						};
 
 						// Now load the data from server
-						_refreshExperienceDetailsData();
+						_refreshexperiencedetailsData();
 
 						// HTTP POST/PUT methods for add/edit address
 						// with the help of id, we are going to find out whether it
 						// is put or post operation
 
-						$scope.submitExperienceDetails = function() {
+						$scope.submitexperiencedetails = function() {
 
 							var method = "";
 							var url = "";
 				
-							if ($scope.ExperienceDetailsForm.id == -1
-									|| $scope.ExperienceDetailsForm.id == undefined) {
+							if ($scope.experiencedetailsForm.id == -1
+									|| $scope.experiencedetailsForm.id == undefined) {
 								// Id is absent in form data, it is create new address
 								// operation
 
 								method = "POST";
-								url = 'http://localhost:8080/visog-job-portal-api/transaction/ExperienceDetails/';
+								url = 'http://localhost:8080/visog-job-portal-api/transaction/experiencedetails/';
 								$http
 										.post(
 												url,
 												{
-													"userid" : $scope.ExperienceDetailsForm.userid,
-													"companyName" : $scope.ExperienceDetailsForm.companyName,
-													"employmenttypeid" : $scope.ExperienceDetailsForm.employmenttypeid,
-													"durationfrom" : $scope.ExperienceDetailsForm.durationfrom,
-													"durationto" : $scope.ExperienceDetailsForm.durationto,
-													"designation" : $scope.ExperienceDetailsForm.designation,
-													"jobprofile" : $scope.ExperienceDetailsForm.jobprofile,
+													"userid" : $scope.experiencedetailsForm.userid,
+													"companyName" : $scope.experiencedetailsForm.companyName,
+													"employmenttypeid" : $scope.experiencedetailsForm.employmenttypeid,
+													"durationfrom" : $scope.experiencedetailsForm.durationfrom,
+													"durationto" : $scope.experiencedetailsForm.durationto,
+													"designation" : $scope.experiencedetailsForm.designation,
+													"jobprofile" : $scope.experiencedetailsForm.jobprofile,
 													
 													
 												}).then(_success, _error);
@@ -57,30 +57,30 @@
 
 								// Id is present in form data, it is edit address
 								// operation
-								id = $scope.ExperienceDetailsForm.id;
+								id = $scope.experiencedetailsForm.id;
 								method = "PUT";
-								url = 'http://localhost:8080/visog-job-portal-api/transaction/ExperienceDetails/'
+								url = 'http://localhost:8080/visog-job-portal-api/transaction/experiencedetails/'
 										+ id;
 								$http
 										.put(
 												url,
 												{
-													"userid" : $scope.ExperienceDetails.userid,
+													"userid" : $scope.experiencedetails.userid,
 													"companyName" : $scope.addressType.companyName,
-													"employmenttypeid" : $scope.ExperienceDetailsForm.employmenttypeid,
-													"durationfrom" : $scope.ExperienceDetailsForm.durationfrom,
-													"durationto" : $scope.ExperienceDetailsForm.durationto,
-													"designation" : $scope.ExperienceDetailsForm.designation,
-													"jobprofile" : $scope.ExperienceDetailsForm.jobprofile,
+													"employmenttypeid" : $scope.experiencedetailsForm.employmenttypeid,
+													"durationfrom" : $scope.experiencedetailsForm.durationfrom,
+													"durationto" : $scope.experiencedetailsForm.durationto,
+													"designation" : $scope.experiencedetailsForm.designation,
+													"jobprofile" : $scope.experiencedetailsForm.jobprofile,
 													
 													
 													
 												}).then(_success, _error);
-								$scope.ExperienceDetails.id = -1;
+								$scope.experiencedetails.id = -1;
 							}
 							/*
 							 * $http({ method : method, url : url, data :
-							 * angular.toJson($scope.ExperienceDetailsForm), headers : {
+							 * angular.toJson($scope.experiencedetailsForm), headers : {
 							 * 'Content-Type' : 'application/json' } }).then(
 							 * _success, _error );
 							 */
@@ -91,7 +91,7 @@
 							$http(
 									{
 										method : 'DELETE',
-										url : 'http://localhost:8080/visog-job-portal-api/transaction/ExperienceDetails/'
+										url : 'http://localhost:8080/visog-job-portal-api/transaction/experiencedetails/'
 												+ country.id
 									}).then(_success, _error);
 						};
@@ -100,27 +100,27 @@
 						// with address id
 						$scope.editCountry = function(country) {
 
-							$scope.ExperienceDetailsForm.userid = ExperienceDetails.userid;
-							$scope.ExperienceDetailsForm.companyName = ExperienceDetails.companyName;
-							$scope.ExperienceDetailsForm.employmenttypeid=ExperienceDetails.employmenttypeid;
-							$scope.ExperienceDetailsForm.durationfrom=ExperienceDetails.durationfrom;
-							$scope.ExperienceDetailsForm.durationto=ExperienceDetails.durationto;
-							$scope.ExperienceDetailsForm.designation=ExperienceDetails.designation;
-							$scope.ExperienceDetailsForm.jobprofile=ExperienceDetails.jobprofile;
+							$scope.experiencedetailsForm.userid = experiencedetails.userid;
+							$scope.experiencedetailsForm.companyName = experiencedetails.companyName;
+							$scope.experiencedetailsForm.employmenttypeid=experiencedetails.employmenttypeid;
+							$scope.experiencedetailsForm.durationfrom=experiencedetails.durationfrom;
+							$scope.experiencedetailsForm.durationto=experiencedetails.durationto;
+							$scope.experiencedetailsForm.designation=experiencedetails.designation;
+							$scope.experiencedetailsForm.jobprofile=experiencedetails.jobprofile;
 							
 							
 						};
 
 						/* Private Methods */
 						// HTTP GET- get all countries collection
-						function _refreshExperienceDetailsData() {
+						function _refreshexperiencedetailsData() {
 							$http(
 									{
 										method : 'GET',
-										url : 'http://localhost:8080/visog-job-portal-api/transaction/ExperienceDetails/'
+										url : 'http://localhost:8080/visog-job-portal-api/transaction/experiencedetails/'
 									}).then(function successCallback(response) {
 								// alert(response.data.data)
-								$scope.ExperienceDetails = response.data.data;
+								$scope.experiencedetails = response.data.data;
 							}, function errorCallback(response) {
 								console.log(response.statusText);
 							});
@@ -128,7 +128,7 @@
 
 						function _success(response) {
 
-							_refreshExperienceDetailsData();
+							_refreshexperiencedetailsData();
 							_clearFormData()
 						}
 
@@ -140,13 +140,13 @@
 						// Clear the form
 						function _clearFormData() {
 							// $scope.genderForm.id = -1;
-							$scope.ExperienceDetailsForm.userid = "";
-							$scope.ExperienceDetailsForm.companyName = "";
-							$scope.ExperienceDetailsForm.employmenttypeid="";
-							$scope.ExperienceDetailsForm.durationfrom="";
-							$scope.ExperienceDetailsForm.durationto="";
-							$scope.ExperienceDetailsForm.designation="";
-							$scope.ExperienceDetailsForm.jobprofile="";
+							$scope.experiencedetailsForm.userid = "";
+							$scope.experiencedetailsForm.companyName = "";
+							$scope.experiencedetailsForm.employmenttypeid="";
+							$scope.experiencedetailsForm.durationfrom="";
+							$scope.experiencedetailsForm.durationto="";
+							$scope.experiencedetailsForm.designation="";
+							$scope.experiencedetailsForm.jobprofile="";
 
 						}
 						;

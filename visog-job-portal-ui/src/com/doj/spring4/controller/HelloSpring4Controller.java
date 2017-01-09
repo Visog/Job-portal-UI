@@ -173,5 +173,9 @@ public class HelloSpring4Controller {
 		return "transaction/languageknown";
 	}
 
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String other() {
+		return "main/index";
+	}
 
 }

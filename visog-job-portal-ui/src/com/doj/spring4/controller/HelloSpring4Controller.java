@@ -13,18 +13,26 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class HelloSpring4Controller {
 
-	/*
-	 * @RequestMapping("/hello") public ModelAndView sayHello() { return new
-	 * ModelAndView("hello2"); }
-	 */
-
-	@RequestMapping(value = "/addressType", method = RequestMethod.GET)
-	public String addressType() {
+	@RequestMapping(value = "/addresstype", method = RequestMethod.GET)
+	public String addresstype() {
 		return "master/addresstype";
 	}
 
-	
-	
+	@RequestMapping(value = "/educationtype", method = RequestMethod.GET)
+	public String educationtype() {
+		return "master/educationtype";
+	}
+
+	@RequestMapping(value = "/jobroles", method = RequestMethod.GET)
+	public String jobroles() {
+		return "master/jobroles";
+	}
+
+	@RequestMapping(value = "/languages", method = RequestMethod.GET)
+	public String languages() {
+		return "master/languages";
+	}
+
 	@RequestMapping("/registration")
 	public ModelAndView say() {
 		return new ModelAndView("registration");
@@ -104,23 +112,6 @@ public class HelloSpring4Controller {
 	public String fileExtension() {
 		return "master/fileExtension";
 	}
-	
-	@RequestMapping(value = "/educationtype", method = RequestMethod.GET)
-	public String educationtype() {
-		return "master/educationtype";
-	}
-	
-	
-	@RequestMapping(value = "/jobroles", method = RequestMethod.GET)
-	public String jobroles() {
-		return "master/jobroles";
-	}
-	
-	
-	@RequestMapping(value = "/languages", method = RequestMethod.GET)
-	public String languages() {
-		return "master/languages";
-	}
 
 	@RequestMapping(value = "/job_Seeker", method = RequestMethod.GET)
 	public String jobSeeker() {
@@ -137,6 +128,36 @@ public class HelloSpring4Controller {
 		return "transaction/employer";
 	}
 
+	@RequestMapping(value = "/Address", method = RequestMethod.GET)
+	public String Address() {
+		return "transaction/Address";
+	}
+
+	@RequestMapping(value = "/ExperienceDetails", method = RequestMethod.GET)
+	public String ExperienceDetails() {
+		return "transaction/ExperienceDetails";
+	}
+
+	@RequestMapping(value = "/JobSeeker", method = RequestMethod.GET)
+	public String JobSeeker() {
+		return "transaction/JobSeeker";
+	}
+
+	@RequestMapping(value = "/PostJobSeeker", method = RequestMethod.GET)
+	public String PostJobSeeker() {
+		return "transaction/PostJobSeeker";
+	}
+
+	@RequestMapping(value = "/ProjectDetails", method = RequestMethod.GET)
+	public String ProjectDetails() {
+		return "transaction/ProjectDetails";
+	}
+
+	@RequestMapping(value = "/Users", method = RequestMethod.GET)
+	public String Users() {
+		return "transaction/Users";
+	}
+
 	@RequestMapping(value = "/employerjobseeker", method = RequestMethod.GET)
 	public String employerjobseeker() {
 		return "transaction/employerjobseeker";
@@ -150,62 +171,6 @@ public class HelloSpring4Controller {
 	@RequestMapping(value = "/languageknown", method = RequestMethod.GET)
 	public String languageknown() {
 		return "transaction/languageknown";
-	}
-	
-	@RequestMapping(value ="/postJob",method =RequestMethod.GET)
-	public String postJob(){
-		return "transaction/PostJob";
-		
-	}
-	
-	
-	@RequestMapping(value ="/Address",method =RequestMethod.GET)
-	public String Address(){
-		return "transaction/Address";
-		
-	}
-
-	@RequestMapping(value ="/ExperienceDetails",method =RequestMethod.GET)
-	public String ExperienceDetails(){
-		return "transaction/ExperienceDetails";
-		
-	}
-	
-	@RequestMapping(value ="/JobSeeker",method =RequestMethod.GET)
-	public String JobSeeker(){
-		return "transaction/JobSeeker";
-		
-	}
-	
-	@RequestMapping(value ="/PostJobSeeker",method =RequestMethod.GET)
-	public String PostJobSeeker(){
-		return "transaction/PostJobSeeker";
-		
-	}
-	
-	@RequestMapping(value ="/ProjectDetails",method =RequestMethod.GET)
-	public String ProjectDetails(){
-		return "transaction/ProjectDetails";
-		
-	}
-	
-	@RequestMapping(value ="/Users",method =RequestMethod.GET)
-	public String Users(){
-		return "transaction/Users";
-		
-	}
-
-	@RequestMapping(value ="/EducationDetails",method =RequestMethod.GET)
-	public String EducationDetails(){
-		return "transaction/EducationDetails";
-		
-	}
-	
-	
-	@RequestMapping(value ="/PostJobDomains",method =RequestMethod.GET)
-	public String postJobDomains(){
-		return "transaction/PostJobDomains";
-		
 	}
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)

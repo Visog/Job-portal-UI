@@ -1,0 +1,62 @@
+
+<html>
+  <head>  
+  
+  <link rel="stylesheet" type="text/css" href="/visog-job-portal-ui/resources/css/master.css" media="screen" />
+
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="/visog-job-portal-ui/resources/js/university.js"></script>
+    <title>AngularJS $http Rest example</title>  
+ <script type="text/javascript">
+          
+        </script>
+   
+    <head>
+    <body ng-app="UniversityManagement" ng-controller="UniversityController">
+         <h1>
+           University Master
+        </h1> 
+        <form ng-submit="submitUniversity()">
+            <table>
+               
+                <tr>
+                    <th colspan="2">Add/Edit university</th>
+                 </tr>
+                <tr>
+                    <td>University Name</td>
+                    <td><input type="text" ng-model="universityForm.name" /></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" ng-model="universityForm.description"  /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Submit" class="blue-button" /></td>
+                </tr>
+            </table>
+        </form>
+        <table>
+            <tr>
+              
+                <th>University</th>
+                <th>Description</th>
+                <th> </th>
+               
+            </tr>
+ 
+            <tr ng-repeat="university in universities">
+       
+    <td> {{ university.name }}</td>
+    <td >{{ university.description }}</td>  
+                
+                <td><a ng-click="editUniversity(university)" class="blue-button">Edit</a> | <a ng-click="deleteUniversity(university)" class="red-button">Delete</a></td>
+            </tr>
+ 
+        </table>
+ 
+       
+ 
+       
+      
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="/visog-job-portal-ui/resources/css/master.css" media="screen" />
+
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="/visog-job-portal-ui/resources/js/specilization.jss"></script>
+	<style rel="stylesheet" href ="css/master.css"></style>
+	
+<title>AngularJS $http Rest example</title>
+</head>
+<body>
+<body ng-app="SpecilizationManagement" ng-controller="SpecilizationController">
+         <h1>
+           Specialization Master
+        </h1> 
+        <form ng-submit="submitSpecilization()">
+            <table>
+               
+                <tr>
+                    <th colspan="2">Add/Edit specialization</th>
+                 </tr>
+                <tr>
+                    <td>Specialization Name</td>
+                    <td><input type="text" ng-model=" specilizationForm.name" /></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" ng-model="specilizationForm.description"  /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Submit" class="blue-button" /></td>
+                </tr>
+            </table>
+        </form>
+        <table>
+            <tr>
+              
+                <th>Specialization</th>
+                <th>Description</th>
+                <th> </th>
+               
+            </tr>
+ 
+            <tr ng-repeat="specilization in specilizations">
+       
+    <td> {{ specilization.name }}</td>
+    <td >{{ specilization.description }}</td>  
+                
+                <td><a ng-click="editSpecilization(specilization)" class="blue-button">Edit</a> | <a ng-click="deleteSpecilization(specilization)" class="red-button">Delete</a></td>
+            </tr>
+ 
+        </table>
+ 
+       
+ 
+       
+      
+  </body>
+</html>
+
+</body>
+</html>

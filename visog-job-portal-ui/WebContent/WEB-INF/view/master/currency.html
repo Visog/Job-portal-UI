@@ -1,0 +1,56 @@
+ <link rel="stylesheet" type="text/css" href="/visog-job-portal-ui/resources/css/master.css" media="screen" />
+
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script src="/visog-job-portal-ui/resources/js/currency.js"></script>
+<!-- 	<style rel="stylesheet" href ="css/master.css"></style> -->
+	
+	<h1>Currency Master</h1>
+	<form ng-submit="submitCurrency()">
+		<table>
+
+			<tr>
+				<th colspan="2">Add/Edit Currency</th>
+			</tr>
+			<tr>
+				<td>Currency Name</td>
+				<td><input type="text" ng-model="currencyForm.name" /></td>
+			</tr>
+
+			<tr>
+				<td>Description</td>
+				<td><input type="text" ng-model="currencyForm.description" /></td>
+			</tr>
+			<tr>
+				<td>Currency_code</td>
+				<td><input type="text" ng-model="currencyForm.currency_code" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Submit"
+					class="blue-button" /></td>
+			</tr>
+		</table>
+	</form>
+	<table>
+		<tr>
+
+			<th>Name</th>
+			<th>Description</th>
+			<th>Currency_code </th>
+			<th></th>
+
+		</tr>
+
+		<tr ng-repeat="currency in currencys">
+
+			<td>{{ currency.name }}</td>
+			<td>{{ currency.description }}</td>
+			<td>{{ currency.currency_code }}</td>
+
+			<td><a ng-click="editCurrency(currency)" class="blue-button">Edit</a>
+				| <a ng-click="deleteCurrency(currency)" class="red-button">Delete</a></td>
+		</tr>
+
+	</table>
+
+</body>
+</html>

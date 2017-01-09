@@ -1,0 +1,62 @@
+<!-- Divya -->
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="/visog-job-portal-ui/resources/css/master.css" media="screen" />
+
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script src="/visog-job-portal-ui/resources/js/state.js"></script>
+<!-- 	<style rel="stylesheet" href ="css/master.css"></style> -->
+	
+	
+
+<title>AngularJS $http Rest example</title>
+
+</head>
+<body ng-app="StateManagement" ng-controller="StateController">
+	<h1>STATE</h1>
+	<form ng-submit="submitState()">
+		<table>
+
+			<tr>
+				<th colspan="2">Add State</th>
+			</tr>
+			<tr>
+				<td>name</td>
+				<td><input type="text" ng-model="stateForm.name" /></td>
+			</tr>
+			
+			<tr>
+				<td>country</td>
+				<td><input type="text" ng-model="stateForm.country" /></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2"><input type="submit" value="Submit"
+					class="blue-button" /></td>
+			</tr>
+		</table>
+	</form>
+	<table>
+		<tr>
+
+			<th>name</th>
+			<th>country</th>
+			
+			<th></th>
+
+		</tr>
+
+		<tr ng-repeat="state in states">
+
+			<td>{{ state.name }}</td>
+			<td>{{ state.country }}</td>
+			
+
+			<td><a ng-click="editState(state)" class="blue-button">Edit</a> |
+				<a ng-click="deleteState(state)" class="red-button">Delete</a></td>
+		</tr>
+
+	</table>
+</body>
+</html>

@@ -1,4 +1,4 @@
-	var app = angular.module("Courses", []);
+  	var app = angular.module("Courses", []);
 
 	//Controller Part
 	app

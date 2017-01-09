@@ -1,5 +1,5 @@
 	var app = angular.module("Address_Type", []);
-
+  
 	//Controller Part
 	app
 			.controller(

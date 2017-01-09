@@ -117,7 +117,7 @@
 						function _clearFormData() {
 							// $scope.genderForm.id = -1;
 							$scope.EducationTypeForm.name = "";
-							$scope.EducationTypeForm.description = "";
+		  					$scope.EducationTypeForm.description = "";
 						
 
 						}

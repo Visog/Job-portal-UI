@@ -1,4 +1,4 @@
-	var app = angular.module("Domains", []);
+  	var app = angular.module("Domains", []);
 
 	//Controller Part
 	app

@@ -3,7 +3,7 @@
   <groupId>visog-job-portal-ui</groupId>
   <artifactId>visog-job-portal-ui</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
   	<properties>
 		<springframework.version>4.2.0.RELEASE</springframework.version>
 	</properties>

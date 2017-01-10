@@ -3,7 +3,7 @@
   <head>  
   
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-      <script src="/visog-job-portal-ui/resources/js/domains.js"></script>
+    
     <title>AngularJS $http Rest example</title>  
  <script type="text/javascript">
             var app = angular.module("DomainsManagement", []);
@@ -200,8 +200,8 @@ tfoot tr th:last-child {
                     <th colspan="2">Add/Edit Domains</th>
                  </tr>
                 <tr>
-                    <td>Domains Name</td>
-                    <td><input type="text" ng-model="domainsForm.name" /></td>
+                    <td> Domains Name</td>
+                    <td><input type="text" ng-model="domainsForm.name" required /></td>
                 </tr>
                 <tr>
                     <td>Description</td>
@@ -215,16 +215,16 @@ tfoot tr th:last-child {
         <table>
             <tr>
               
-                <th>Name</th>
+                <th>Domains</th>
                 <th>Description</th>
                 <th> </th>
                
             </tr>
  
-            <tr ng-repeat="domains in Domains">
+            <tr ng-repeat="role in roles">
        
-    <td> {{ domain.name }}</td>
-    <td >{{ domain.description }}</td>  
+    <td> {{ domains.name }}</td>
+    <td >{{ domains.description }}</td>  
                 
                 <td><a ng-click="editDomains(domains)" class="blue-button">Edit</a> | <a ng-click="deleteDomains(domains)" class="red-button">Delete</a></td>
             </tr>

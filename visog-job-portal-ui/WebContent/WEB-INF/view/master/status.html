@@ -1,131 +1,139 @@
+
 <html>
   <head>  
   
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-  <script src="/visog-job-portal-ui/resources/js/.js"></script>
     
     <title>AngularJS $http Rest example</title>  
  <script type="text/javascript">
- var app = angular.module("StatusManagement", []);
-
-//Controller Part
-app
-		.controller(
-				"StatusController",
-				function($scope, $http) {
-
-					$scope.status = [];
-					$scope.statusForm = {
-					 id : -1,
+            var app = angular.module("StatusManagement", []);
+         
+            //Controller Part
+            app.controller("StatusController", function($scope, $http) {
+         
+               
+                $scope.Status = [];
+                $scope.statusForm = {
+                  //  id : -1,
+                		code :"",
 						name : "",
+						category : "",
+						ordernum : "",
 						description :""
-				
-					};
-
-					// Now load the data from server
-					_refreshStatusData();
-
-					// HTTP POST/PUT methods for add/edit role
-					// with the help of id, we are going to find out whether it
-					// is put or post operation
-
-					$scope.submitStatus = function() {
-
-						var method = "";
-						var url = "";
-						// alert($scope.stateForm.id);
-						if ($scope.statusForm.id == -1
-								|| $scope.statusForm.id == undefined) {
-							// Id is absent in form data, it is create new role
-							// operation
-
-							method = "POST";
-							url = 'http://localhost:8080/visog-job-portal-api/master/status/';
-							$http.post(url, {
-								"name" : $scope.statusForm.name,
-								"description" : $scope.statusForm.description
-								
-							}).then(_success, _error);
-
-						} else {
-
-							// Id is present in form data, it is edit role
-							// operation
-							id = $scope.statusForm.id;
-							method = "PUT";
-							url = 'http://localhost:8080/visog-job-portal-api/master/status/'
-									+ id;
-							$http.put(url, {
-								"name" : $scope.statusForm.name,
-								"description" : $scope.statusForm.description
-								
-							}).then(_success, _error);
-							$scope.stateForm.id = -1;
-						}
-						/*
-						 * $http({ method : method, url : url, data :
-						 * angular.toJson($scope.genderForm), headers : {
-						 * 'Content-Type' : 'application/json' } }).then(
-						 * _success, _error );
-						 */
-					};
-
-					// HTTP DELETE- delete role by Id
-					$scope.deleteStatus = function(state) {
-						$http(
-								{
-									method : 'DELETE',
-									url : 'http://localhost:8080/visog-job-portal-api/master/status/'
-											+ status.id
-								}).then(_success, _error);
-					};
-
-					// In case of edit, populate form fields and assign form.id
-					// with role id
-					$scope.editStatus = function(status) {
-
-						$scope.statusForm.name = status.name;
-						$scope.statusForm.description = status.description;
-					
-						$scope.statusForm.id = status.id;
-					};
-
-					/* Private Methods */
-					// HTTP GET- get all countries collection
-					function _refreshStatusData() {
-						$http(
-								{
-									method : 'GET',
-									url : 'http://localhost:8080/visog-job-portal-api/master/status/'
-								}).then(function successCallback(response) {
-							// alert(response.data.data)
-							$scope.status = response.data.data;
-						}, function errorCallback(response) {
-							console.log(response.statusText);
-						});
-					}
-
-					function _success(response) {
-
-						_refreshStatusData();
-						_clearFormData()
-					}
-
-					function _error(response) {
-
-						console.log(response.statusText);
-					}
-
-					// Clear the form
-					function _clearFormData() {
-						// $scope.cityForm.id = -1;
-						$scope.statusForm.name = "";
-						$scope.statusForm.description = "";
-					
-
-					}
-					;
-				});
+                };
+         
+                //Now load the data from server
+                _refreshStatusData();
+         
+                //HTTP POST/PUT methods for add/edit role 
+                // with the help of id, we are going to find out whether it is put or post operation
+                
+                $scope.submitStatus = function() {
+         
+                    var method = "";
+                    var url = "";
+                   // alert($scope.roleForm.id);
+                    if ($scope.statusForm.id == -1 || $scope.statusForm.id == undefined) {
+                        //Id is absent in form data, it is create new role operation
+                        
+                        method = "POST";
+                        url = 'http://localhost:8080/visog-job-portal-api/master/status/';
+                        $http.post(url, { 	
+                        					"code": $scope.statusForm.code, 
+                        					"name": $scope.statusForm.name, 
+                        					"category": $scope.statusForm.category, 
+                        					"ordernum": $scope.statusForm.ordernum, 
+                        					"description" : $scope.statusForm.description 
+                        					
+                        
+                        
+                        }).then( _success, _error ); 
+                        }
+                    
+                    } else {
+                    	 
+                        //Id is present in form data, it is edit role operation
+                        id=$scope.statusForm.id;
+                        method = "PUT";
+                        url = 'http://localhost:8080/visog-job-portal-api/master/status/'+ id;
+                      $http.put(url, { 	
+                    	  
+                    	  "code": $scope.statusForm.code, 
+      					"name": $scope.statusForm.name, 
+    					"category": $scope.statusForm.category, 
+    					"ordernum": $scope.statusForm.ordernum, 
+    					"description" : $scope.statusForm.description 
+                    	  				
+                      }).then( _success, _error );
+                      }
+                      $scope.statusForm.id = -1;
+                    }
+ /*         
+                    $http({
+                        method : method,
+                        url : url,
+                        data : angular.toJson($scope.roleForm),
+                        headers : {
+                            'Content-Type' : 'application/json'
+                        }
+                    }).then( _success, _error ); */
+                };
+         
+                //HTTP DELETE- delete role by Id
+                $scope.deleteStatus = function(status) {
+                    $http({
+                        method : 'DELETE',
+                        url : 'http://localhost:8080/visog-job-portal-api/master/status/' + status.id
+                    }).then(_success, _error);
+                };
+ 
+             // In case of edit, populate form fields and assign form.id with role id
+                $scope.editStatus = function(status) {
+                  
+                    $scope.statusForm.code = status.code;
+                    $scope.statusForm.name = status.name;
+                    $scope.statusForm.category = status.category;
+                    $scope.statusForm.ordernum = status.ordernum;
+                    $scope.statusForm.description = status.description;
+                    $scope.statusForm.id = status.id;
+                };
+         
+                /* Private Methods */
+                //HTTP GET- get all countries collection
+                function _refreshStatusData() {
+                    $http({
+                        method : 'GET',
+                        url : 'http://localhost:8080/visog-job-portal-api/master/status/'
+                    }).then(function successCallback(response) {
+                    	//alert(response.data.data)
+                        $scope.status = response.data.data;
+                    }, function errorCallback(response) {
+                        console.log(response.statusText);
+                    });
+                }
+         
+                function _success(response) {
+                	
+                    _refreshStatusData();
+                    _clearFormData()
+                }
+         
+                function _error(response) {
+                	
+                    console.log(response.statusText);
+                }
+         
+                //Clear the form
+                function _clearFormData() {
+                  //  $scope.roleForm.id = -1;
+                    $scope.statusForm.code = "";
+                    $scope.statusForm.name = "";
+                    $scope.statusForm.category = "";
+                    $scope.statusForm.ordernum = "";
+                    $scope.statusForm.description = "";
+                
+                };
+            });
         </script>
         <style>
            
@@ -211,7 +219,7 @@ tfoot tr th:last-child {
     <head>
     <body ng-app="StatusManagement" ng-controller="StatusController">
          <h1>
-           Status
+           Status Master
         </h1> 
         <form ng-submit="submitStatus()">
             <table>
@@ -220,8 +228,20 @@ tfoot tr th:last-child {
                     <th colspan="2">Add/Edit Status</th>
                  </tr>
                 <tr>
-                    <td> Name</td>
+                    <td> Code</td>
+                    <td><input type="text" ng-model="statusForm.code" /></td>
+                </tr>
+                <tr>
+                    <td>Status Name</td>
                     <td><input type="text" ng-model="statusForm.name" /></td>
+                </tr>
+                <tr>
+                    <td> Category</td>
+                    <td><input type="text" ng-model="statusForm.category" /></td>
+                </tr>
+                <tr>
+                    <td> Order Number</td>
+                    <td><input type="text" ng-model="statusForm.ordernum" /></td>
                 </tr>
                 <tr>
                     <td>Description</td>
@@ -235,19 +255,24 @@ tfoot tr th:last-child {
         <table>
             <tr>
               
+                <th>Code</th>
                 <th>Name</th>
+                <th>Category</th>
+                <th>Order Number</th>
                 <th>Description</th>
-                <th>Action</th>
                 <th> </th>
                
             </tr>
  
-            <tr ng-repeat="employertype in employertype">
+            <tr ng-repeat="status in status">
        
+    <td> {{ status.code }}</td>
     <td> {{ status.name }}</td>
+    <td> {{ status.category }}</td>
+    <td> {{ status.ordernum }}</td>
     <td >{{ status.description }}</td>  
                 
-                <td><a ng-click="editStatus(status)" class="blue-button">Edit</a> | <a ng-click="deleteStatus(Status)" class="red-button">Delete</a></td>
+                <td><a ng-click="editStatus(status)" class="blue-button">Edit</a> | <a ng-click="deleteStatus(status)" class="red-button">Delete</a></td>
             </tr>
  
         </table> 

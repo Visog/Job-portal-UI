@@ -67,6 +67,11 @@ public class HelloSpring4Controller {
 	public String state() {
 		return "master/state";
 	}
+	
+	@RequestMapping(value = "/status", method = RequestMethod.GET)
+	public String status() {
+		return "master/status";
+	}
 
 	@RequestMapping(value = "/city", method = RequestMethod.GET)
 	public String city() {

@@ -219,11 +219,11 @@ tfoot tr th:last-child {
                 </tr>
                 <tr>
                     <td>Post Job ID</td>
-                    <td><input type="text" ng-model="postjobseekerForm.employerid"  /></td>
+                    <td><input type="text" ng-model="postjobseekerForm.postjobid"  /></td>
                 </tr>
                 <tr>
                     <td>Status ID</td>
-                    <td><input type="text" ng-model="postjobseekerForm.employerid"  /></td>
+                    <td><input type="text" ng-model="postjobseekerForm.statusid"  /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Submit" class="blue-button" /></td>
@@ -243,7 +243,10 @@ tfoot tr th:last-child {
             <tr ng-repeat="postjobseeker in postjobseekers">
        
     <td> {{ postjobseeker.jobseekerid }}</td>
-    <td >{{ postjobseeker.employerid }}</td>  
+    <td >{{ postjobseeker.employerid }}</td> 
+   <td >{{ postjobseeker.postjobid }}</td> 
+      <td >{{ postjobseeker.statusid }}</td> 
+   
                 
                 <td><a ng-click="editPostJobSeeker(postjobseeker)" class="blue-button">Edit</a> | <a ng-click="deletePostJobSeeker(postjobseeker)" class="red-button">Delete</a></td>
             </tr>

@@ -11,7 +11,7 @@
 							// id : -1,
 							name : "",
 							code : "",
-							orderNum : ""
+							//orderNum : ""
 						};
 
 						// Now load the data from server
@@ -39,7 +39,7 @@
 												{
 													"name" : $scope.countryForm.name,
 													"code" : $scope.countryForm.code,
-													"orderNum" : $scope.countryForm.orderNum
+													//"orderNum" : $scope.countryForm.orderNum
 												}).then(_success, _error);
 
 							} else {
@@ -56,7 +56,7 @@
 												{
 													"name" : $scope.countryForm.name,
 													"code" : $scope.countryForm.code,
-													"orderNum" : $scope.countryForm.orderNum
+													//"orderNum" : $scope.countryForm.orderNum
 												}).then(_success, _error);
 								$scope.countryForm.id = -1;
 							}
@@ -84,7 +84,7 @@
 
 							$scope.countryForm.name = country.name;
 							$scope.countryForm.code = country.code;
-							$scope.countryForm.orderNum = country.orderNum;
+							//$scope.countryForm.orderNum = country.orderNum;
 							$scope.countryForm.id =country.id;
 						};
 
@@ -119,7 +119,7 @@
 							// $scope.genderForm.id = -1;
 							$scope.countryForm.name = "";
 							$scope.countryForm.code = "";
-							$scope.countryForm.orderNum = "";
+						//	$scope.countryForm.orderNum = "";
 
 						}
 						;

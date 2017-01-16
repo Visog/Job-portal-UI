@@ -46,7 +46,7 @@ alert('hi');
 								//Id is absent in form data, it is create new file operation
 								      alert('hhhh');
 								method = "POST";
-								url = 'http://localhost:8080/visog-job-portal-api/registration/job_seeker';
+								url = 'http://localhost:8080/visog-job-portal-api/registration/admin';
 								
 								$http
 										.post(
@@ -70,7 +70,7 @@ alert('hi');
 								//Id is present in form data, it is edit file operation
 								id = $scope.registrationForm.id;
 								method = "PUT";
-								url = 'http://localhost:8080/visog-job-portal-api/registration/job_seeker/'
+								url = 'http://localhost:8080/visog-job-portal-api/registration/admin/'
 										+ id;
 								$http
 										.post(

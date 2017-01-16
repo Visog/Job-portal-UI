@@ -130,9 +130,18 @@ public class HelloSpring4Controller {
 
 	@RequestMapping(value = "/employer", method = RequestMethod.GET)
 	public String employer() {
-		return "transaction/employer";
+		return "transaction/Employer_Registration";
 	}
-
+	@RequestMapping(value = "/employer_registration", method = RequestMethod.GET)
+	public String employer_registration() {
+		return "transaction/Employer_Registration";
+	}
+	@RequestMapping(value = "/admin_registration", method = RequestMethod.GET)
+	public String admin_registration() {
+		return "transaction/Admin_Registration";
+	}
+	
+	
 	@RequestMapping(value = "/address", method = RequestMethod.GET)
 	public String Address() {
 		return "transaction/address";

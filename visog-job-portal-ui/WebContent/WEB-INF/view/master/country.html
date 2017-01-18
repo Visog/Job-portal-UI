@@ -230,10 +230,10 @@ td, th {
 				<td>Code</td>
 				<td><input type="text" ng-model="countryForm.code" /></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>OrderNum</td>
 				<td><input type="text" ng-model="countryForm.orderNum" /></td>
-			</tr>
+			</tr> -->
 			<tr>
 				<td colspan="2"><input type="submit" value="Submit"
 					class="blue-button" /></td>
@@ -245,7 +245,7 @@ td, th {
 
 			<th>Name</th>
 			<th>Code</th>
-			<th>OrderNum</th>
+			<!-- <th>OrderNum</th> -->
 			<th></th>
 
 		</tr>
@@ -254,7 +254,7 @@ td, th {
 
 			<td>{{ country.name }}</td>
 			<td>{{ country.code }}</td>
-			<td>{{ country.orderNum }}</td>
+			<!-- <td>{{ country.orderNum }}</td> -->
 
 			<td><a ng-click="editCountry(country)" class="blue-button">Edit</a>
 				| <a ng-click="deleteCountry(country)" class="red-button">Delete</a></td>

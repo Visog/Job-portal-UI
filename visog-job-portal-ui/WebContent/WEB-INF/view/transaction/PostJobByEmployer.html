@@ -225,11 +225,7 @@ app
 						console.log(response.statusText);
 					});
 				}
-				 /* $scope.g2 = function() {
-					 
-					 alert('llll');
-				 } */
-				
+				 
 				function _success(response) {
 					alert(response.data.message);
 					_refreshGenderData();
@@ -277,6 +273,7 @@ function adjust_textarea(h) {
       {{currency.code}}
    </option>
 	</select>
+	
 	
 <select name="country"  ng-model="postJob.country" id="country"   ng-change="SelectState()" onChange="">
 	<option value="select" >Select</option>

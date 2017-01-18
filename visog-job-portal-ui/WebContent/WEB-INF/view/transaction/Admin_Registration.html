@@ -15,7 +15,7 @@
 			.controller(
 					"myCtrl",
 					function($scope, $http) {
-alert('hi');
+//alert('hi');
 						$scope.registrationForm = [];
 						_refreshGenderData();
 
@@ -44,7 +44,7 @@ alert('hi');
 							if ($scope.registrationForm.id == -1
 									|| $scope.registrationForm.id == undefined) {
 								//Id is absent in form data, it is create new file operation
-								      alert('hhhh');
+							//	      alert('hhhh');
 								method = "POST";
 								url = 'http://localhost:8080/visog-job-portal-api/registration/admin';
 								
@@ -63,7 +63,7 @@ alert('hi');
 													"phone" : $scope.registrationForm.mobile,
 													"landline" : $scope.registrationForm.landline
 												}).then(_success, _error);
-								alert(url);
+						//		alert(url);
 
 							} else {
 

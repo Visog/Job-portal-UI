@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Registration Form</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+ 
+<style type="text/css">
+.form-style-8{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+.form-style-8 h2{
+    background: #4D4D4D;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.form-style-8 textarea{
+    resize:none;
+    overflow: hidden;
+}
+.form-style-8 input[type="button"], 
+.form-style-8 input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.form-style-8 input[type="button"]:hover, 
+.form-style-8 input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+</style>
+
+
+<script >
+/* $('select[name=dropdown]').change(function() {
+    $('#result').html($(this).val());
+}); */
+function g1(sel)
+{
+	alert('jj');
+	//sel.value();
+	}
+var app = angular.module("myApp", []);
+//Controller Part
+
+app
+		.controller(
+				"myCtrl",
+				
+				function($scope, $http) {
+					
+					
+					$scope.postJob = []; 
+					_CurrencyData();
+					_CountryData();
+					
+					  /* $scope.d1 = function() {
+						  alert('jjjj');
+					  } */
+					 /*  $('#Zdd_1').change(function(){
+						    //if($(this).val() === 'yes')
+						        alert("Hi, I'm alert!");
+						}); */
+						
+					
+
+				        $scope.SelectState = function () {
+				            $scope.DropDownStatus = $scope.postJob.country;
+				            _StateData()
+				        };
+				        $scope.SelectCity = function () {
+				           // $scope.DropDownStatus = $scope.postJob.country;
+				            _CityData()
+				        };
+
+				function _CurrencyData() {
+					$http(
+							{
+								method : 'GET',
+								url : 'http://localhost:8080/visog-job-portal-api/master/currency/'
+							}).then(function successCallback(response) {
+								
+								
+						$scope.currencys = response.data.data;
+						//alert('hijj dfdfdf 1'+response.data.data);
+					}, function errorCallback(response) {
+						console.log(response.statusText);
+					});//alert('jjffj');
+				}
+				function _CountryData() {
+					$http(
+							{
+								method : 'GET',
+								url : 'http://localhost:8080/visog-job-portal-api/master/country/'
+							}).then(function successCallback(response) {
+					//	 alert(response.data.data+"Country Data")
+						$scope.countrys = response.data.data;
+					}, function errorCallback(response) {
+						console.log(response.statusText);
+					});
+				}
+				function _StateData() {
+					$http(
+							{
+								method : 'GET',
+								url : 'http://localhost:8080/visog-job-portal-api/master/state/'
+							}).then(function successCallback(response) {
+					//	 alert(response.data.data+"Country Data")
+						$scope.states = response.data.data;
+					
+					
+						// alert($scope.states+"Country Data")
+						var StateObj = [];var StateIDObj = [];
+						var state1=[];
+						
+						/* this.obj = [{data: 'a', value :true}, {data: 'b', value:true}]; */
+					for (var i = 0, l = $scope.states.length; i < l; i++) {
+						if($scope.postJob.country==$scope.states[i].country)
+							{
+							
+							//StateObj.push("{name:"+$scope.states[i].name+",id:"+$scope.states[i].id+"}");
+							StateIDObj.push($scope.states[i].id); 
+							StateObj.push($scope.states[i].name); 
+							//alert('dddddddddddddddd');
+						  //  StateIDObj.push();
+							}
+    }
+						//alert(StateObj);
+					//this.obj=[StateObj];
+					$scope.state11=StateObj;
+					$scope.state22=StateIDObj;
+					//$scope.states1=StateIDObj;
+					
+				//	alert('kkk');
+					}, function errorCallback(response) {
+						console.log(response.statusText);
+					});
+				}
+				
+				function _CityData() {
+					$http(
+							{
+								method : 'GET',
+								url : 'http://localhost:8080/visog-job-portal-api/master/city'
+							}).then(function successCallback(response) {
+					//	 alert(response.data.data+"Country Data")
+						$scope.cities = response.data.data;
+					
+					
+						// alert($scope.states+"Country Data")
+						var CityObj = [];var CityIDObj = [];
+						
+						
+						/* this.obj = [{data: 'a', value :true}, {data: 'b', value:true}]; */
+					for (var i = 0, l = $scope.cities.length; i < l; i++) {
+						if($scope.postJob.country==$scope.cities[i].country && $scope.postJob.state==$scope.cities[i].state)
+							{
+							
+							
+							//StateObj.push("{name:"+$scope.states[i].name+",id:"+$scope.states[i].id+"}");
+							CityIDObj.push($scope.cities[i].id); 
+							CityObj.push($scope.cities[i].name); 
+							//alert('dddddddddddddddd');
+						  //  StateIDObj.push();
+							}
+    }
+						//alert(StateObj);
+					//this.obj=[StateObj];
+					$scope.city11=CityObj;
+					$scope.city22=CityIDObj;
+					//$scope.states1=StateIDObj;
+					
+				//	alert('kkk');
+					}, function errorCallback(response) {
+						console.log(response.statusText);
+					});
+				}
+				 /* $scope.g2 = function() {
+					 
+					 alert('llll');
+				 } */
+				
+				function _success(response) {
+					alert(response.data.message);
+					_refreshGenderData();
+					_clearFormData()
+				}
+				function _clearFormData() {
+					
+				}
+				function _error(response) {
+
+					console.log(response.statusText);
+				}
+				});
+				
+$scope.update = function(id){
+	alert('jjj');
+    //id = event.target.id;
+   // $scope.item[id+'Date'] = new Date();
+ };
+/* 
+function adjust_textarea(h) {
+    h.style.height = "20px";
+    h.style.height = (h.scrollHeight)+"px";
+}}); */
+</script>
+
+</head>
+<body  ng-app="myApp" ng-controller="myCtrl">
+<div class="form-style-8">
+  <h2>Post a job</h2>
+  <form ><div id='result'></div>
+    <input type="text" name="company" placeholder="Company Name *"   required ng-model="postJob.company"/>
+	<input type="text" name="jobtitle" placeholder="Job title *" ng-model="postJob.jobtitle" />
+	<textarea rows="4" cols="50" name="Jobdescription" placeholder="Job Description *"  ng-model="postJob.description"></textarea>
+	<input type="date" name="EffectiveFrom" placeholder="Effective From *" ng-model="postJob.fromdate"/>
+	<input type="date" name="EffectiveTo" placeholder="Effective To *" ng-model="postJob.todate"/>
+	<p> Walkin</p>
+	<input type="radio" name="Walkin" value="0" ng-model="postJob.walkin"/>No
+	<input type="radio" name="Walkin" value="1"  ng-model="postJob.walkin"/>Yes
+	<input type="text" name="SalaryRangeFrom" placeholder="Salary Range From " ng-model="postJob.fromrange"/>
+	<input type="text" name="SalaryRangeTo" placeholder="Salary Range To " ng-model="postJob.torange"/>
+	<select name="Currency" placeholder="Currency " ng-model="postJob.currency">
+	<option value="select" >Select</option>
+	 <option ng-repeat="currency in currencys" value="{{currency.id}}">
+      {{currency.code}}
+   </option>
+	</select>
+	
+<select name="country"  ng-model="postJob.country" id="country"   ng-change="SelectState()" onChange="">
+	<option value="select" >Select</option>
+	 <option ng-repeat="country in countrys" value="{{country.id}}">
+      {{country.name}}
+   </option></select>
+   
+
+   
+<select name="state"  ng-model="postJob.state"  placeholder="State *" id="state"    ng-change="SelectCity()">
+	<option value="select" >Select</option>
+	
+	 <option ng-repeat="number in state11"  value="{{state22[$index]}}"  > 
+     {{number}}      
+   </option></select>
+
+	<select name="city"  ng-model="postJob.city"  value=""placeholder="city *" id="city"   >
+	<option value="select" >Select</option>
+	
+	 <option ng-repeat="number in city11"  value="{{city22[$index]}}"  > 
+     {{number}}      
+   </option></select>
+   <div>
+	<input type="text" name="FromExperience" placeholder="From Experience *" ng-model="postJob.company"/>
+	<input type="text" name="ToExperience" placeholder="To Experience *" ng-model="postJob.company"/></div>
+	<input type="text" name="PhoneNumber"placeholder="PhoneNumber " ng-model="postJob.company"/>
+  
+   
+	<input type="button" value="Submit"/>
+  </form>
+</div>
+</body>
+</html>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+

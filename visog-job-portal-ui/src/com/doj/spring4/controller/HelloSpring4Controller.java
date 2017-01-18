@@ -166,6 +166,10 @@ public class HelloSpring4Controller {
 	public String ProjectDetails() {
 		return "transaction/projectdetails";
 	}
+	@RequestMapping(value = "/postjob", method = RequestMethod.GET)
+	public String postjob() {
+		return "transaction/PostJobByEmployer";
+	}
 
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String Users() {
